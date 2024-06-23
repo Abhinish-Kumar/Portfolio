@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* height: 100vh; */
+        background-color: black;
+        flex-direction: column;
+        max-width: 1500px;
+        margin-bottom: 100vh;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+    </style>
+    <link rel="stylesheet" href="card.css" />
+    <link rel="stylesheet" href="header.css" />
+    <style>
+      aside {
+        color: white;
+        position: relative;
+        /* min-width: 300px; */
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+      }
+      aside ul {
+        border: 1px solid white;
+        position: fixed;
+        right: 0;
+        z-index: 10;
+        overflow: hidden;
+        padding: 2rem;
+        background-color: rgb(6, 11, 13);
+        box-shadow: inset 3px -1px 15px 2px rgba(14, 203, 197, 0.572);
+        height: 80vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 600px;
+        width: 100%;
+      }
+      aside ul li {
+        list-style: none;
+        box-shadow: inset 3px -1px 15px 2px rgba(14, 203, 197, 0.572);
+        padding: 1rem;
+      }
+      #togle_aside {
+        border: none;
+        border-radius: 1rem;
+        text-shadow: 2px 2px 2px 2px grey;
+        background-color: rgba(255, 0, 0, 0);
+        color: white;
+        font-size: 2rem;
+        padding-right: 1rem;
+      }
+      .show_aside_in {
+        /* display: none; */
+        transform: translateX(100%);
+        transition: linear;
+        transition-duration: 100ms;
+      }
+      .show_aside_out {
+        /* display: none; */
+        transform: translateX(0px);
+        /* transition: linear; */
+        transition-duration: 500ms;
+      }
+      /* aside button {
+        position: absolute;
+        right: 0;
+      } */
+      /* lets style the button */
+      #cv {
+        padding: 0.3rem 0.5rem;
+        color: white;
+        background: linear-gradient(
+          135deg,
+          rgba(14, 203, 197, 0.572),
+          rgb(128, 53, 0)
+        );
+        border: none;
+        border-radius: 0.4rem;
+        box-shadow: -1px 3px 20px 4px rgba(14, 203, 197, 0.572);
+        animation: butn 1s infinite ease-in-out;
+        animation: butn2 1s infinite ease-in-out;
+        animation-direction: alternate;
+      }
+      /* btn animation */
+      #cv:hover {
+        background: linear-gradient(
+          135deg,
+          rgb(233, 233, 233),
+          rgb(255, 255, 255)
+        );
+        color: black;
+        text-shadow: 2px 2px 2px 2px rgba(14, 203, 197, 0.572);
+      }
+      @keyframes butn {
+        0% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes butn2 {
+        0% {
+          transform: rotate(10deg);
+          transform-origin: center;
+        }
+        100% {
+          transform: rotate(-10deg);
+          transform-origin: center;
+        }
+      }
+
+      /* add fan to button to cool my site */
+      .fan1 {
+        display: none;
+        width: 50%;
+        height: 1px;
+        border-radius: 50% 0 50% 0;
+        background-color: rgba(11, 221, 207, 0.266);
+        transform: translateY(30px);
+        transform-origin: center;
+        animation: fan1 2s ease-in-out 0.5s infinite alternate;
+      }
+      @keyframes fan1 {
+        0% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+
+      .fan2 {
+        display: none;
+        width: 30%;
+        height: 1px;
+        border-radius: 50% 0 50% 0;
+        background-color: rgba(17, 242, 208, 0.257);
+        transform: translateY(-30px);
+        transform-origin: center;
+        animation: fan2 2s ease-in-out 0.5s infinite alternate;
+      }
+      @keyframes fan2 {
+        0% {
+          transform: rotate(-360deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .fan4 {
+        display: none;
+        width: 40%;
+        height: 1px;
+        border-radius: 50% 0 50% 0;
+        background-color: rgba(17, 242, 208, 0.219);
+        transform: translateY(30px);
+        transform-origin: center;
+        animation: fan1 2s ease-in-out 0.5s infinite alternate;
+      }
+      @keyframes fan4 {
+        0% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+
+      .fan3 {
+        display: none;
+        width: 60%;
+        height: 1px;
+        border-radius: 50% 0 50% 0;
+        background-color: rgba(17, 242, 208, 0.168);
+        transform: translateY(-30px);
+        transform-origin: center;
+        animation: fan2 2s ease-in-out 0.5s infinite alternate;
+      }
+      @keyframes fan3 {
+        0% {
+          transform: rotate(-360deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* fullScreen */
+      .goFullScreen {
+        color: white;
+        position: relative;
+        cursor: pointer;
+        font-size: 1rem;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header_wraper">
+      <div onclick="goFullScreenn()" class="goFullScreen" id="goFull">⟪⟫</div>
+
+      <header>
+        <div class="logo">
+          <img src="a.jpeg" alt="" />
+        </div>
+        <ul>
+          <li>About</li>
+          <li>Knowledge</li>
+          <li>Projects</li>
+          <li>Contact</li>
+        </ul>
+      </header>
+
+      <aside>
+        <h1>⊱ ⨇bĥiɳişh ⨛⪡uⅿar ⊰</h1>
+        <!-- <button id="togle_aside">Toggle</button> -->
+        <ul id="aside_list" class="show_aside_in">
+          <li>About</li>
+          <li>Knowledge</li>
+          <li>Projects</li>
+          <li>Contact</li>
+        </ul>
+      </aside>
+      <button id="togle_aside">⋈</button>
+    </div>
+    <div class="main_body">
+      <div class="image-container">
+        <div class="img">
+          <img src="b.png" alt="" />
+          <h1>Abhinish</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Consequuntur ipsam voluptatem incidunt quam ex necessitatibus
+            deserunt distinctio eligendi voluptas minus!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+            numquam dolore architecto ducimus molestias doloribus expedita ipsum
+            nesciunt exercitationem laborum.
+          </p>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <div class="info">
+        <h1>I <span class="heading">am Abhi</span>nish......</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+          dignissimos delectus sapiente rem dolorem excepturi optio, eos
+          obcaecati voluptas sit.
+        </p>
+
+        <div class="fan1 fan"></div>
+        <div class="fan2 fan"></div>
+        <div class="fan4 fan"></div>
+        <div class="fan3 fan"></div>
+        <button id="cv">Downlod CV</button>
+        <div class="fan1 fan"></div>
+        <div class="fan2 fan"></div>
+        <div class="fan4 fan"></div>
+        <div class="fan3 fan"></div>
+      </div>
+    </div>
+
+    <script>
+      let togle_aside = document.getElementById("togle_aside");
+      let aside_list = document.getElementById("aside_list");
+      togle_aside.addEventListener("click", (e) => {
+        e.preventDefault();
+        // document.documentElement.requestFullscreen();
+        // aside_list.setAttribute("class", "show_aside_out");
+        // aside_list.classList.toggle("show_aside_out");
+        if (aside_list.getAttribute("class") === "show_aside_in") {
+          togle_aside.innerText = "⋉";
+          aside_list.removeAttribute("class", "show_aside_in");
+          aside_list.classList.add("show_aside_out");
+        } else {
+          togle_aside.innerText = "⋈";
+          aside_list.removeAttribute("class", "show_aside_out");
+          aside_list.classList.add("show_aside_in");
+        }
+      });
+
+      // cv button
+      let fan = document.querySelectorAll(".fan");
+      console.log(fan);
+      let cv = document.getElementById("cv");
+      cv.addEventListener("mouseenter", () => {
+        fan.forEach((element) => {
+          element.style.display = "block";
+        });
+      });
+      cv.addEventListener("mouseout", () => {
+        fan.forEach((element) => {
+          element.style.display = "none";
+        });
+      });
+
+      // <div onclick="goFullScreenn()" class="goFullScreen" id="goFullScreen">
+      //   {--}
+      // </div>
+      // // full screen
+      // let goFullScreen = document.querySelector("#goFullScreen");
+      // goFullScreen.addEventListener("click", () => {
+      //   // document.documentElement.requestFullscreen();
+      //   // goFullScreen.style.color = "orange";
+      //   if (goFullScreen.getAttribute("onclick") === "goFullScreenn()") {
+      //     goFullScreen.removeAttribute("onclick", "goFullScreenn()");
+      //     goFullScreen.setAttribute("onclick", "outFullScreenn()");
+      //   } else {
+      //     goFullScreen.removeAttribute("onclick", "outFullScreenn()");
+      //     goFullScreen.setAttribute("onClick", "goFullScreenn()");
+      //   }
+      // });
+
+      function goFullScreenn() {
+        // if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+        document
+          .getElementById("goFull")
+          .setAttribute("onclick", "outFullScreenn()");
+        document.getElementById("goFull").style.color = "skyblue";
+
+        // }
+      }
+
+      function outFullScreenn() {
+        document.exitFullscreen();
+        document
+          .getElementById("goFull")
+          .setAttribute("onclick", "goFullScreenn()");
+        document.getElementById("goFull").style.color = "white";
+      }
+    </script>
+  </body>
+</html>

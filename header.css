@@ -1,0 +1,144 @@
+.header_wraper {
+            width: 100%;
+            /* background-color: rgba(255, 255, 255, 0.081); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* box-shadow: 1px 6px 13px 1px #ffffff54; */
+            /* box-shadow: -2px 0px 12px 2px rgba(14, 203, 197, 0.572); */
+            box-shadow: 2px -1px 18px 8px rgba(14, 203, 197, 0.572);
+            /* border-bottom: 1px solid white;
+            border-top: 1px solid white; */
+            margin-top: 1rem;
+            animation: header 9s infinite ease-in-out;
+            position:sticky;
+            top: 0;
+            right: 0;
+            z-index:8;
+            background-color: rgb(6, 11, 13);
+            /* box-shadow: inset 3px -1px 15px 2px rgba(14, 203, 197, 0.572); */
+
+          }
+    
+          @keyframes header {
+            0% {
+        box-shadow: inset 2px -1px 20px 12px rgba(14, 203, 197, 0.572);
+    }
+    20% {
+        box-shadow: inset -2px 1px 18px 4px rgba(14, 203, 197, 0.572);
+    }
+    30% {
+        box-shadow: inset -12px -7px 18px 3px rgba(14, 203, 197, 0.572);
+    }
+    40% {
+        box-shadow: inset 2px -1px 18px 8px rgba(14, 203, 197, 0.572);
+    }
+    50% {
+        box-shadow: inset 2px -1px 18px 8px rgba(14, 203, 197, 0.572);
+    }
+    60% {
+        box-shadow: inset 2px -1px 18px 8px rgba(14, 203, 197, 0.572);
+    }
+    80% {
+        box-shadow: inset 2px -1px 18px 8px rgba(14, 203, 197, 0.572);
+    }
+    100% {
+        box-shadow: inset 2px -1px 18px 8px rgba(14, 203, 197, 0.572);
+    }
+          }
+    
+          header {
+            color: rgb(255, 255, 255);
+            display: flex;
+            width: 100%;
+            /* background-color: rgba(16, 195, 189, 0.51); */
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            font-family: cursive;
+           
+          }
+          header .logo img {
+            width: 60px;
+            margin: 0.7rem;
+            border-radius: 50%;
+            /* box-shadow: 2px -1px 18px 8px rgba(14, 203, 197, 0.572); */
+            box-shadow: -3px 3px 11px 3px rgba(14, 203, 197, 0.572);
+          }
+          header ul {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+          }
+          header ul li {
+            list-style: none;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.681);
+          }
+          .main_body {
+            /* border: 3px solid red; */
+            width: 100%;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-around;
+          }
+
+          .info {
+            color: white;
+            width: 50%;
+            animation: header 9s infinite ease-in-out;
+text-align: center;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction: column;
+background-color: rgb(6 11 13 / 51%);
+          }
+          .info .heading {
+            color: rgb(16 195 190 / 98%);
+            text-shadow: 1px 0px 0px white;
+          }
+        
+
+          @media screen and (max-width: 900px) {
+            .main_body{
+                        flex-direction:column;
+                        /* background-color: red; */
+                        padding: 1rem;
+                        align-items: center;
+                        
+            }
+            .info {
+                        color: white;
+                        width: 100%;
+                       padding: 2rem;
+                       margin-top: 10%;
+                       font-size: .8rem;
+                       line-height: 1.5rem;
+                      }
+                     
+                      header{
+                        display: none;
+                       }
+                       aside{
+                       display: block;
+                       }
+
+         }
+         @media screen and (min-width: 900px) {
+           
+                      header{
+                        display: flex;
+                         /* background-color: pink; */
+                       }
+                       aside{
+                        display: none;
+                       }
+                       #togle_aside{
+                        display: none;
+                       }
+                       /* header button{
+                        display: none;
+                       } */
+         }
